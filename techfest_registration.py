@@ -3,9 +3,23 @@ import sys
 print("Welcome to SMIT TechFest!")
 print("Event organized by Dirk Sebastian A. Buño of APPDAET BTCS2")
 
-participants = int(input("\nHow many participants will register?: "))
+participants_num = int(input("\nHow many participants will register?: "))
 
-if participants <= 0:
+if participants_num <= 0:
     print("Invalid number of participants.")
     sys.exit()
+else:
+    participants = []
 
+    for i in range(participants_num):
+        name = input("\nEnter participant name: ")
+        track = input("Enter chosen track: ")
+
+
+        participant = {"name": name, "track": track}
+        participants.append(participant)
+
+
+    print("\nRegistered Participants:")
+    for index, p in enumerate(participants, start=1):
+        print(f"{index}. {p['name']} - {p['track']}")
